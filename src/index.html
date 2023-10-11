@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Area Calculator</title>
+    <link rel="icon" href="./img/calculator.svg" type="image/x-icon">
+    <link href="/dist/output.css" rel="stylesheet">
+</head>
+<body class="bg-slate-200">
+    <main id="app">
+        <h1 align="center" class="mb-5 font-heading text-2xl font-bold">Area
+            Calculator</h1>
+        <div class="flex justify-center items-center border py-4 mb-4 flex-wrap">
+            <p class="text-lg font-bold flex flex-row justify-center">
+                Result : &nbsp;<span id="output" class="block w-[200px]"></span>
+            </p>
+            <div>
+            <button id="storeBtn"
+                class="bg-sky-400 hover:bg-red-600 hover:text-black hover:transition-colors duration-300 hover:ease-in-out mx-2 px-2 py-1 rounded-md text-white">Store</button>
+            <button id="clearBtn"
+                class="bg-sky-400 hover:bg-black hover:text-white hover:transition-colors duration-300 hover:ease-in-out mx-2 px-2 py-1 rounded-md text-white">Clear</button>
+            </div>
+        </div>
+        <div>
+            <div class="flex justify-center items-center mb-2">
+                <input class="h-9 px-2 py-5 rounded-sm" type="number"
+                    id="widthInput" placeholder="Width Input">
+            </div>
+            <div class="flex justify-center items-center mb-2">
+                <input class="h-9 px-2 py-5 rounded-sm" type="number"
+                    id="breadthInput"
+                    placeholder="Breadth Input">
+            </div>
+            <div class="flex justify-center items-center mb-6">
+                <button
+                    class="bg-sky-400 hover:bg-red-500 hover:text-black hover:transition-colors duration-300 hover:ease-in-out mx-2 px-2 py-1 rounded-md text-white mt-3"
+                    id="calcBtn">Calculate</button>
+            </div>
+            <div class="flex justify-center items-center mb-2 ">
+                <ul id="recordLists">
+                    <li></li>
+                    <li></li>
+                </ul>
+            </div>
+        </div>
+    </main>
+    <script>
+        const output = document.querySelector("#output");
+        const storeBtn = document.querySelector("#storeBtn");
+        const clearBtn = document.querySelector("#clearBtn");
+        const widthInput = document.querySelector("#widthInput");
+        const breadthInput = document.querySelector("#breadthInput");
+        const recordLists = document.querySelector("#recordLists");
+        calcBtn.onclick = () =>{
+            const area = widthInput.valueAsNumber * breadthInput.valueAsNumber;
+            output.innerHTML = area + " SqFt<sup>2</sup> ";
+        };
+        clearBtn.clearAll;
+        storeBtn.onclick = () => {
+            recordLists.innerHTML += `<li class="font-bold italic"> ${widthInput.valueAsNumber} ft *  ${breadthInput.valueAsNumber} ft = ${output.innerHTML}`;
+            clearAll();
+        }
+        const clearAll = () =>{
+            output.innerHTML = null;
+            widthInput.value = null;
+            breadthInput.value = null;
+        }
+        
+    </script>
+</body>
+</html>
